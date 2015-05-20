@@ -47,6 +47,11 @@ library("dplyr")
 OK...所以怎樣才是個"好" Model?
 </font>
 
+<font size=6 color='orange'>
+你/妳的答案:
+</font>
+
+
 --- .largecontent
 
 ## Linear Model
