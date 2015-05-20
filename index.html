@@ -409,12 +409,24 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
     <pre><code class="r">summary(fit_noisy)
 </code></pre>
 
-<pre><code>## Warning: internal error -3 in R_decompress1
-</code></pre>
-
-<pre><code>## Error: lazy-load database
-## &#39;/Users/DboyLiao/Documents/R_scripts/DSP/A2/A2_Review/.cache/unnamed-chunk-9_d7ac3b4bf8fcd8de15c6fd6ec0371fb0.rdb&#39;
-## is corrupt
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ X, data = data_noisy)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -14.959  -3.203  -0.079   3.313  14.359 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    1.116      0.334    3.35  0.00085 ***
+## X              1.399      0.147    9.51  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.75 on 998 degrees of freedom
+## Multiple R-squared:  0.0832, Adjusted R-squared:  0.0822 
+## F-statistic: 90.5 on 1 and 998 DF,  p-value: &lt;2e-16
 </code></pre>
 
   </article>

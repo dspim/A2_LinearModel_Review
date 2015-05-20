@@ -285,13 +285,24 @@ summary(fit_noisy)
 ```
 
 ```
-## Warning: internal error -3 in R_decompress1
-```
-
-```
-## Error: lazy-load database
-## '/Users/DboyLiao/Documents/R_scripts/DSP/A2/A2_Review/.cache/unnamed-chunk-9_d7ac3b4bf8fcd8de15c6fd6ec0371fb0.rdb'
-## is corrupt
+## 
+## Call:
+## lm(formula = Y ~ X, data = data_noisy)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -14.959  -3.203  -0.079   3.313  14.359 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    1.116      0.334    3.35  0.00085 ***
+## X              1.399      0.147    9.51  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 4.75 on 998 degrees of freedom
+## Multiple R-squared:  0.0832,	Adjusted R-squared:  0.0822 
+## F-statistic: 90.5 on 1 and 998 DF,  p-value: <2e-16
 ```
 
 

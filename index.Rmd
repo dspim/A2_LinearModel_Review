@@ -248,7 +248,7 @@ summary(fit_ok)
 
 ### Noise 對模型的影響
 
-```{r, include=FALSE}
+```{r, cache=FALSE, include=FALSE}
 fit_noisy <- lm(Y ~ X, data = data_noisy)
 ```
 
