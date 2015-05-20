@@ -280,24 +280,13 @@ summary(fit_noisy)
 ```
 
 ```
-## 
-## Call:
-## lm(formula = Y ~ X, data = data_noisy)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -14.959  -3.203  -0.079   3.313  14.359 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)    1.116      0.334    3.35  0.00085 ***
-## X              1.399      0.147    9.51  < 2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 4.75 on 998 degrees of freedom
-## Multiple R-squared:  0.0832,	Adjusted R-squared:  0.0822 
-## F-statistic: 90.5 on 1 and 998 DF,  p-value: <2e-16
+## Warning: internal error -3 in R_decompress1
+```
+
+```
+## Error: lazy-load database
+## '/Users/DboyLiao/Documents/R_scripts/DSP/A2/A2_Review/.cache/unnamed-chunk-9_d7ac3b4bf8fcd8de15c6fd6ec0371fb0.rdb'
+## is corrupt
 ```
 
 
@@ -489,8 +478,39 @@ ggplot(data, aes(x = Y, fill = X)) + geom_bar(alpha = .4, binwidth = .5)
 
 ## 補充: 變數選取小撇步
 
-- 變數獨立性
-- $X$ v.s $2X$
+- $X$ v.s $2X$ (共線性問題)
+- 變數獨立性 (等等看圖說明)
+
+--- .largecontent
+
+## 補充: 變數選取小撇步
+
+- 譬如說，我們想知道年齡與身高的關係。
+- $X_1$ 是身高(公分)
+- $X_2$ 是身高(公尺)
+- 把 $X_1$ 與 $X_2$ 同時放進 Linear Model 裡會有什麼效果呢?
+
+--- .largecontent
+
+## 補充: 變數選取小撇步
+
+$$
+\begin{aligned}
+y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
+    =& \beta_0 + \beta_1 100 x_{2, i} + \beta_2 x_{2, i} \\
+    =& \beta_0 + (100\beta_1 + \beta_2)x_{2, i} \\
+\end{aligned}
+$$
+
+--- .largecontent
+
+## 補充: 變數選取小撇步
+
+- 有放 $X_1$ 跟沒放一樣。
+- 會造成運算結果的錯誤。
+  - 因為 covariance matrix 不是 full-ranked (給懂線性代數的朋友)
+- 百害而無一利。
+- 避免放入有強烈線性關係的變數!
 
 --- .largecontent
 

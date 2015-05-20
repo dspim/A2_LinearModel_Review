@@ -405,24 +405,12 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
     <pre><code class="r">summary(fit_noisy)
 </code></pre>
 
-<pre><code>## 
-## Call:
-## lm(formula = Y ~ X, data = data_noisy)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -14.959  -3.203  -0.079   3.313  14.359 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)    1.116      0.334    3.35  0.00085 ***
-## X              1.399      0.147    9.51  &lt; 2e-16 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 4.75 on 998 degrees of freedom
-## Multiple R-squared:  0.0832, Adjusted R-squared:  0.0822 
-## F-statistic: 90.5 on 1 and 998 DF,  p-value: &lt;2e-16
+<pre><code>## Warning: internal error -3 in R_decompress1
+</code></pre>
+
+<pre><code>## Error: lazy-load database
+## &#39;/Users/DboyLiao/Documents/R_scripts/DSP/A2/A2_Review/.cache/unnamed-chunk-9_d7ac3b4bf8fcd8de15c6fd6ec0371fb0.rdb&#39;
+## is corrupt
 </code></pre>
 
   </article>
@@ -704,14 +692,64 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </hgroup>
   <article data-timings="">
     <ul>
-<li>變數獨立性</li>
-<li>\(X\) v.s \(2X\)</li>
+<li>\(X\) v.s \(2X\) (共線性問題)</li>
+<li>變數獨立性 (等等看圖說明)</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 <slide class="largecontent" id="slide-43" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>補充: 變數選取小撇步</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>譬如說，我們想知道年齡與身高的關係。</li>
+<li>\(X_1\) 是身高(公分)</li>
+<li>\(X_2\) 是身高(公尺)</li>
+<li>把 \(X_1\) 與 \(X_2\) 同時放進 Linear Model 裡會有什麼效果呢?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-44" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>補充: 變數選取小撇步</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>\[
+\begin{aligned}
+y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
+    =& \beta_0 + \beta_1 100 x_{2, i} + \beta_2 x_{2, i} \\
+    =& \beta_0 + (100\beta_1 + \beta_2)x_{2, i} \\
+\end{aligned}
+\]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-45" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>補充: 變數選取小撇步</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>有放 \(X_1\) 跟沒放一樣。</li>
+<li>會造成運算結果的錯誤。
+
+<ul>
+<li>因為 covariance matrix 不是 full-ranked (給懂線性代數的朋友)</li>
+</ul></li>
+<li>百害而無一利。</li>
+<li>避免放入有強烈線性關係的變數!</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-46" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -726,7 +764,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-44" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-47" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -757,7 +795,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-45" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-48" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -774,7 +812,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-46" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-49" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -787,7 +825,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-47" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-50" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -819,7 +857,7 @@ head(sales_data)
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-48" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-51" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>資料整理/視覺化套件</h2>
   </hgroup>
@@ -1092,19 +1130,19 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='實作'>
+        data-slide=43 title='補充: 變數選取小撇步'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='實作'>
+        data-slide=44 title='補充: 變數選取小撇步'>
          44
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='實作'>
+        data-slide=45 title='補充: 變數選取小撇步'>
          45
       </a>
     </li>
@@ -1122,8 +1160,26 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='資料整理/視覺化套件'>
+        data-slide=48 title='實作'>
          48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='實作'>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='實作'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title='資料整理/視覺化套件'>
+         51
       </a>
     </li>
   </ul>

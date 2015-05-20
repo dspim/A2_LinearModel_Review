@@ -428,8 +428,39 @@ ggplot(data, aes(x = Y, fill = X)) + geom_bar(alpha = .4, binwidth = .5)
 
 ## 補充: 變數選取小撇步
 
-- 變數獨立性
-- $X$ v.s $2X$
+- $X$ v.s $2X$ (共線性問題)
+- 變數獨立性 (等等看圖說明)
+
+--- .largecontent
+
+## 補充: 變數選取小撇步
+
+- 譬如說，我們想知道年齡與身高的關係。
+- $X_1$ 是身高(公分)
+- $X_2$ 是身高(公尺)
+- 把 $X_1$ 與 $X_2$ 同時放進 Linear Model 裡會有什麼效果呢?
+
+--- .largecontent
+
+## 補充: 變數選取小撇步
+
+$$
+\begin{aligned}
+y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
+    =& \beta_0 + \beta_1 100 x_{2, i} + \beta_2 x_{2, i} \\
+    =& \beta_0 + (100\beta_1 + \beta_2)x_{2, i} \\
+\end{aligned}
+$$
+
+--- .largecontent
+
+## 補充: 變數選取小撇步
+
+- 有放 $X_1$ 跟沒放一樣。
+- 會造成運算結果的錯誤。
+  - 因為 covariance matrix 不是 full-ranked (給懂線性代數的朋友)
+- 百害而無一利。
+- 避免放入有強烈線性關係的變數!
 
 --- .largecontent
 
