@@ -537,5 +537,5 @@ head(sales_data)
 - dplyr (`pipe`)
 - ggplot2
 - GGally (`ggpairs`)
-- demo.R
+- [demo.R](https://raw.githubusercontent.com/dspim/A2_LinearModel_Review/gh-pages/demo.R)
 
