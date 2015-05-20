@@ -556,6 +556,43 @@ head(sales_data)
 
 ## 實作
 
+- 編碼出問題了。
+- 簡單的方法可以用 `read.table` 中的 `fileEncoding` 參數解決。
+
+--- .largecontent
+
+
+```r
+sales_data <- read.table("demo_data.csv", sep = ',', fileEncoding = 'big5',
+                         header = T, stringsAsFactors = F)
+```
+
+```r
+head(sales_data)
+```
+
+```
+##   Store       Date Time Dept   Family Item_No SalesQty Price SalesValue
+## 1    H1 01/01/2009    9   GA 運動飲料     254        3    24         72
+## 2    H1 01/01/2009    9   GA 運動飲料     654        3    19         57
+## 3    H1 01/01/2009    9   GA 運動飲料     876        5    14         70
+## 4    H1 01/01/2009   10   GA 運動飲料     186        5     9         45
+## 5    H1 01/01/2009   11   GA 運動飲料     876        5    14         70
+## 6    H1 01/01/2009   12   GA 運動飲料     654        1    29         29
+##   Sales_Status Sales_number
+## 1            N            1
+## 2            P            1
+## 3            P            1
+## 4            P            1
+## 5            P            1
+## 6            P            1
+```
+
+
+--- .largecontent
+
+## 實作
+
 <font size=7 color=orange>用 Unix/Linux 的人有福了:</font>
 - 用 `iconv` 處理編碼。(`big5 --> utf8`)
 

@@ -487,6 +487,24 @@ head(sales_data)
 
 ## 實作
 
+- 編碼出問題了。
+- 簡單的方法可以用 `read.table` 中的 `fileEncoding` 參數解決。
+
+--- .largecontent
+
+```{r, cache=FALSE, results='hide'}
+sales_data <- read.table("demo_data.csv", sep = ',', fileEncoding = 'big5',
+                         header = T, stringsAsFactors = F)
+```
+```{r, results = 'hold', cache=FALSE}
+head(sales_data)
+```
+
+
+--- .largecontent
+
+## 實作
+
 <font size=7 color=orange>用 Unix/Linux 的人有福了:</font>
 - 用 `iconv` 處理編碼。(`big5 --> utf8`)
 
