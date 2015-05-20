@@ -380,18 +380,18 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
 ## 
 ## Residuals:
 ##    Min     1Q Median     3Q    Max 
-## -2.842 -0.717 -0.016  0.680  3.635 
+## -3.496 -0.646 -0.010  0.679  3.358 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   0.7503     0.0763    9.83   &lt;2e-16 ***
-## X             1.6191     0.0331   48.91   &lt;2e-16 ***
+## (Intercept)   0.7574     0.0685    11.1   &lt;2e-16 ***
+## X             1.5904     0.0306    52.0   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.03 on 998 degrees of freedom
-## Multiple R-squared:  0.706,  Adjusted R-squared:  0.705 
-## F-statistic: 2.39e+03 on 1 and 998 DF,  p-value: &lt;2e-16
+## Residual standard error: 0.98 on 998 degrees of freedom
+## Multiple R-squared:  0.73,   Adjusted R-squared:  0.73 
+## F-statistic: 2.7e+03 on 1 and 998 DF,  p-value: &lt;2e-16
 </code></pre>
 
   </article>
@@ -411,18 +411,18 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -15.191  -3.247   0.189   3.337  15.178 
+## -14.959  -3.203  -0.079   3.313  14.359 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)    1.112      0.331    3.36  0.00081 ***
-## X              1.378      0.148    9.28  &lt; 2e-16 ***
+## (Intercept)    1.116      0.334    3.35  0.00085 ***
+## X              1.399      0.147    9.51  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 4.84 on 998 degrees of freedom
-## Multiple R-squared:  0.0795, Adjusted R-squared:  0.0786 
-## F-statistic: 86.2 on 1 and 998 DF,  p-value: &lt;2e-16
+## Residual standard error: 4.75 on 998 degrees of freedom
+## Multiple R-squared:  0.0832, Adjusted R-squared:  0.0822 
+## F-statistic: 90.5 on 1 and 998 DF,  p-value: &lt;2e-16
 </code></pre>
 
   </article>
@@ -827,6 +827,7 @@ head(sales_data)
     <ul>
 <li>dplyr (<code>pipe</code>)</li>
 <li>ggplot2</li>
+<li>GGally (<code>ggpairs</code>)</li>
 <li>demo.R</li>
 </ul>
 
