@@ -177,7 +177,7 @@ $$
 # 產生資料
 X <- matrix(rnorm(1000, 2), 1000, 1)
 beta_true <- matrix(c(0.73, 1.6), 2, 1)
-Y <- cbind(rep(1, 1000), X) %*% beta_true + rnorm(1000)
+Y <- cbind(rep(1, 1000), X) %*% beta_true + rnorm(1000, sd = 1)
 data_ok <- data.frame(Y = Y, X = X)
 ```
 
@@ -551,20 +551,20 @@ head(sales_data)
 ```
 
 ```
-##      V1         V2   V3   V4                     V5      V6       V7    V8
-## 1 Store       Date Time Dept                 Family Item_No SalesQty Price
-## 2    H1 01/01/2009   09   GA \xb9B\xb0ʶ\xbc\xae\xc6     254        3    24
-## 3    H1 01/01/2009   09   GA \xb9B\xb0ʶ\xbc\xae\xc6     654        3    19
-## 4    H1 01/01/2009   09   GA \xb9B\xb0ʶ\xbc\xae\xc6     876        5    14
-## 5    H1 01/01/2009   10   GA \xb9B\xb0ʶ\xbc\xae\xc6     186        5     9
-## 6    H1 01/01/2009   11   GA \xb9B\xb0ʶ\xbc\xae\xc6     876        5    14
-##           V9          V10          V11
-## 1 SalesValue Sales_Status Sales_number
-## 2         72            N            1
-## 3         57            P            1
-## 4         70            P            1
-## 5         45            P            1
-## 6         70            P            1
+##      V1         V2   V3       V4                     V5      V6       V7
+## 1 Store       Date Time     Dept                 Family Item_No SalesQty
+## 2    H1 01/01/2009    9 gva-hQl1 \xb9B\xb0ʶ\xbc\xae\xc6     254        3
+## 3    H1 01/01/2009    9 gva-hQl1 \xb9B\xb0ʶ\xbc\xae\xc6     654        3
+## 4    H1 01/01/2009    9 gva-hQl1 \xb9B\xb0ʶ\xbc\xae\xc6     876        5
+## 5    H1 01/01/2009   10 gva-hQl1 \xb9B\xb0ʶ\xbc\xae\xc6     186        5
+## 6    H1 01/01/2009   11 gva-hQl1 \xb9B\xb0ʶ\xbc\xae\xc6     876        5
+##      V8         V9          V10          V11
+## 1 Price SalesValue Sales_Status Sales_number
+## 2    24         72            N            1
+## 3    19         57            P            1
+## 4    14         70            P            1
+## 5     9         45            P            1
+## 6    14         70            P            1
 ```
 
 
@@ -588,20 +588,20 @@ head(sales_data)
 ```
 
 ```
-##   Store       Date Time Dept   Family Item_No SalesQty Price SalesValue
-## 1    H1 01/01/2009    9   GA 運動飲料     254        3    24         72
-## 2    H1 01/01/2009    9   GA 運動飲料     654        3    19         57
-## 3    H1 01/01/2009    9   GA 運動飲料     876        5    14         70
-## 4    H1 01/01/2009   10   GA 運動飲料     186        5     9         45
-## 5    H1 01/01/2009   11   GA 運動飲料     876        5    14         70
-## 6    H1 01/01/2009   12   GA 運動飲料     654        1    29         29
-##   Sales_Status Sales_number
-## 1            N            1
-## 2            P            1
-## 3            P            1
-## 4            P            1
-## 5            P            1
-## 6            P            1
+##   Store       Date Time     Dept   Family Item_No SalesQty Price
+## 1    H1 01/01/2009    9 gva-hQl1 運動飲料     254        3    24
+## 2    H1 01/01/2009    9 gva-hQl1 運動飲料     654        3    19
+## 3    H1 01/01/2009    9 gva-hQl1 運動飲料     876        5    14
+## 4    H1 01/01/2009   10 gva-hQl1 運動飲料     186        5     9
+## 5    H1 01/01/2009   11 gva-hQl1 運動飲料     876        5    14
+## 6    H1 01/01/2009   12 gva-hQl1 運動飲料     654        1    29
+##   SalesValue Sales_Status Sales_number
+## 1         72            N            1
+## 2         57            P            1
+## 3         70            P            1
+## 4         45            P            1
+## 5         70            P            1
+## 6         29            P            1
 ```
 
 
@@ -637,20 +637,20 @@ head(sales_data)
 ```
 
 ```
-##   Store       Date Time Dept   Family Item_No SalesQty Price SalesValue
-## 1    H1 01/01/2009    9   GA 運動飲料     254        3    24         72
-## 2    H1 01/01/2009    9   GA 運動飲料     654        3    19         57
-## 3    H1 01/01/2009    9   GA 運動飲料     876        5    14         70
-## 4    H1 01/01/2009   10   GA 運動飲料     186        5     9         45
-## 5    H1 01/01/2009   11   GA 運動飲料     876        5    14         70
-## 6    H1 01/01/2009   12   GA 運動飲料     654        1    29         29
-##   Sales_Status Sales_number
-## 1            N            1
-## 2            P            1
-## 3            P            1
-## 4            P            1
-## 5            P            1
-## 6            P            1
+##   Store       Date Time     Dept   Family Item_No SalesQty Price
+## 1    H1 01/01/2009    9 gva-hQl1 運動飲料     254        3    24
+## 2    H1 01/01/2009    9 gva-hQl1 運動飲料     654        3    19
+## 3    H1 01/01/2009    9 gva-hQl1 運動飲料     876        5    14
+## 4    H1 01/01/2009   10 gva-hQl1 運動飲料     186        5     9
+## 5    H1 01/01/2009   11 gva-hQl1 運動飲料     876        5    14
+## 6    H1 01/01/2009   12 gva-hQl1 運動飲料     654        1    29
+##   SalesValue Sales_Status Sales_number
+## 1         72            N            1
+## 2         57            P            1
+## 3         70            P            1
+## 4         45            P            1
+## 5         70            P            1
+## 6         29            P            1
 ```
 
 --- .largecontent

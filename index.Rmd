@@ -179,7 +179,7 @@ $$
 # 產生資料
 X <- matrix(rnorm(1000, 2), 1000, 1)
 beta_true <- matrix(c(0.73, 1.6), 2, 1)
-Y <- cbind(rep(1, 1000), X) %*% beta_true + rnorm(1000)
+Y <- cbind(rep(1, 1000), X) %*% beta_true + rnorm(1000, sd = 1)
 data_ok <- data.frame(Y = Y, X = X)
 ```
 
@@ -473,7 +473,7 @@ $$
 
 - 用 `read.table` 讀進 data
 
-```{r}
+```{r, cache=FALSE}
 sales_data <- read.table("demo_data.csv", sep=',')
 ```
 
@@ -483,7 +483,7 @@ sales_data <- read.table("demo_data.csv", sep=',')
 
 - 看一下讀進來的結果
 
-```{r}
+```{r, cache=FALSE}
 head(sales_data)
 ```
 
@@ -513,7 +513,7 @@ head(sales_data)
 <font size=7 color=orange>用 Unix/Linux 的人有福了:</font>
 - 用 `iconv` 處理編碼。(`big5 --> utf8`)
 
-```{r}
+```{r, eval=FALSE}
 system("iconv -f big5 -t utf8 demo_data.csv > demo_data_utf8.csv")
 ```
 
@@ -530,7 +530,7 @@ system("iconv -f big5 -t utf8 demo_data.csv > demo_data_utf8.csv")
 
 - 再重新讀一次
 
-```{r}
+```{r, cache=FALSE}
 sales_data <- read.table("demo_data_utf8.csv", sep = ",", header=T, stringsAsFactors = F)
 head(sales_data)
 ```
