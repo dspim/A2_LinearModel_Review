@@ -187,7 +187,8 @@ data_ok <- data.frame(Y = Y, X = X)
 
 ```r
 # 畫圖
-ggplot(data_ok, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3)
+ggplot(data_ok, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3) + 
+  geom_smooth(method = "lm", se = F)
 ```
 
 ![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
@@ -212,7 +213,8 @@ data <- data.frame(Y = Y, X = X)
 
 ```r
 # 畫圖
-ggplot(data, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3)
+ggplot(data, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3) + 
+  geom_smooth(method = "lm", se = F)
 ```
 
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4.png) 
@@ -237,7 +239,8 @@ data_noisy <- data.frame(Y = Y, X = X)
 
 ```r
 # 畫圖
-ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3)
+ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3) + 
+  geom_smooth(method = "lm", se = F)
 ```
 
 ![plot of chunk unnamed-chunk-6](assets/fig/unnamed-chunk-6.png) 
