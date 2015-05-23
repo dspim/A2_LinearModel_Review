@@ -39,6 +39,7 @@ if (!require("reshape2")) install.packages("reshape2")
 if (!require("ggplot2")) install.packages("ggplots") 
 if (!require("scales")) install.packages("scales") 
 if (!require("devtools")) install.packages("devtools") 
+library(devtools)
 if (!require("ggfortify")) install_github('sinhrks/ggfortify')
 
 
@@ -47,7 +48,6 @@ library(dplyr)      # data ETL 套件
 library(reshape2)   # data ETL 套件
 library(ggplot2)    # 視覺化套件
 library(scales)     # 改變ggplot2座標軸刻度
-library(devtools)
 library(ggfortify)
 ```
 
