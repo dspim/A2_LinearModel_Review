@@ -1,0 +1,241 @@
+---
+title: "Data Modeling with R"
+author: Johnson Hsieh    <br> May, 2015 @ DSP A2資料分析進階班 <br> [Contact me](mailto:johnson@dsp.im)｜[Data Analyst Training Program @ DSP](http://dsp.im/dsp-data-science-learning-map/) <br>   
+output: 
+  html_document:
+    theme: "spacelab"
+    css: styles.css
+    fig_width: 10
+    fig_height: 7.5
+    toc: true
+    toc_depth: 3
+---
+<br>
+```{r setup, include=FALSE, cache=FALSE}
+library(dplyr)
+library(data.table)
+library(reshape2)   # long and wide format
+library(knitr)      # dynamic report generation, RMarkdown
+library(ggplot2)    # data Viz
+library(scales)      # show percent labels in ggplot2
+library(GGally)     # extension to ggplot2
+library(ggdendro)
+library(ggfortify)
+
+options(width=100, dplyr.width=Inf)
+knitr::opts_chunk$set(comment="", message=FALSE, warning=FALSE, 
+                      echo=TRUE)
+myfilepath <- "../data/hypermall2009utf8/hypermall_H1_utf8.csv"
+myfilepath2 <- "../data/hypermall2009utf8/hypermall_supplement_utf8.csv" 
+raw <- fread(myfilepath, data.table=FALSE)
+sup <- fread(myfilepath2, data.table=FALSE)
+```
+
+## 載入必要套件
+```{r load-packages-not-run, eval=FALSE}
+if (!require("data.table")) install.packages("data.table")
+if (!require("dplyr")) install.packages("dplyr") 
+if (!require("reshape2")) install.packages("reshape2") 
+if (!require("ggplot2")) intall.packages("ggplots") 
+if (!require("scales")) intall.packages("scales") 
+if (!require("devtools")) intall.packages("devtools") 
+if (!require("ggfortify")) install_github('sinhrks/ggfortify')
+
+
+library(data.table) # data ETL 套件 
+library(dplyr)      # data ETL 套件
+library(reshape2)   # data ETL 套件
+library(ggplot2)    # 視覺化套件
+library(scales)     # 改變ggplot2座標軸刻度
+library(devtools)
+library(ggfortify)
+```
+
+## 利用`fread`將檔案讀入R
+- `fread`是R套件`data.table`中的函數，能夠快速的將各式文字檔讀入R中    
+- 比預設`read.table` or `read.csv`還要快 (快很多倍...)
+- embedded quotes ("\"" and """") have problems (v1.9.4)
+```{r read-data-not-run, eval=FALSE}
+# 填入您存放資料的路徑 (可以是相對/絕對路徑)
+raw <- fread("~/DSP/A2/hypermall_H1.csv", data.table=FALSE)
+sup <- fread("~/DSP/A2/hypermall_supplement.csv", data.table=FALSE)
+```
+
+```{r read-data}
+str(raw)
+# 將字串型的變數轉成適當的資料型態
+raw <- mutate(raw, 
+              Date=as.Date(Date, format="%m/%d/%Y"),
+              Sales_Value=as.numeric(Sales_Value), 
+              Sales_Qty=as.numeric(Sales_Qty),
+              Sales_Number=as.numeric(Sales_Number), 
+              Item_Type=as.numeric(Item_Type),
+              Price_Mode=as.numeric(Price_Mode)
+              )
+```
+
+
+## 探索性資料分析 (Exploratory Data Analysis)
+- 日期 vs. 銷售次數
+- 日期 vs. 銷售金額
+
+```{r ggplot-起手式, eval=FALSE}
+# ggplot 起手式
+ggplot(data, aes(x=a, y=b, ...)) + geom_xxx()
+```
+```{r eda1}
+# 客製化 ggplot2 佈景主題
+thm <- function() {
+  theme_gray(base_family = "STHeiti") + # 讓Mac使用者能夠顯示中文, Windows使用者應省略這行
+  theme(text=element_text(size=18)) # 將字體調整至18號
+}
+
+df1 <- group_by(raw, Date) %>% 
+  summarise(Sales_Value=sum(Sales_Value), Sales_Number=sum(Sales_Number))
+
+ggplot(df1, aes(x=Date, y=Sales_Number)) + geom_point()
+
+ggplot(df1, aes(x=Date, y=Sales_Number)) + geom_point(size=4) + 
+  labs(x="日期", y="銷售次數") + thm() + 
+  scale_y_continuous(labels=comma) +
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month"))
+
+ggplot(df1, aes(x=Date, y=Sales_Value)) + geom_point(size=4) + 
+  labs(x="日期", y="銷售金額") +  thm() + 
+  scale_y_continuous(labels=comma) + 
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month"))
+
+ggplot(df1, aes(x=Sales_Number, y=Sales_Value)) + geom_point(size=4) +
+  labs(x="銷售次數", y="銷售金額") + thm() + 
+  scale_x_continuous(labels=comma) + 
+  scale_y_continuous(labels=comma) 
+```
+
+### 加入額外的變數作圖
+- 日期 vs. 銷售次數 vs. 週間
+- 日期 vs. 銷售金額 vs. 週間
+- 銷售次數 vs. 銷售金額
+```{r eda2}
+df1 <- mutate(df1, is.weekday=strftime(Date, "%u")<6)
+
+ggplot(df1, aes(x=Date, y=Sales_Number, colour=is.weekday)) + geom_point(size=4) + 
+  labs(x="日期", y="銷售次數") + thm() + 
+  scale_y_continuous(labels=comma) +
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month"))
+
+ggplot(df1, aes(x=Date, y=Sales_Value, colour=is.weekday)) + geom_point(size=4) + 
+  labs(x="日期", y="銷售金額") +  thm() + 
+  scale_y_continuous(labels=comma) + 
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month"))
+
+ggplot(df1, aes(x=Sales_Number, y=Sales_Value, colour=is.weekday)) + geom_point(size=4) +
+  labs(x="銷售次數", y="銷售金額") + thm() + 
+  scale_x_continuous(labels=comma) + 
+  scale_y_continuous(labels=comma) 
+```
+
+- 日期 vs. 銷售金額 vs. 節日
+- 日期 vs. 銷售金額 vs. 颱風
+- 日期 vs. 銷售金額 vs. 雨量
+```{r eda3}
+str(sup)
+
+# 將字串型的變數轉成適當的資料型態
+sup <- mutate(sup,
+              Date=as.Date(Date, format="%m/%d/%Y"),
+              is.bigday=as.logical(as.integer(is.bigday)),
+              is.typhoon=as.logical(as.integer(is.typhoon)),
+              is.weekday=strftime(Date, format="%u")<6,
+              Rainfall=as.numeric(Rainfall)
+              )
+df2 <- left_join(raw, sup, by=c("Date", "Store")) %>% 
+  group_by(Date, is.weekday, is.bigday, is.typhoon, Rainfall) %>% 
+  summarise(Sales_Value=sum(Sales_Value), Sales_Number=sum(Sales_Number))
+
+ggplot(df2, aes(x=Date, y=Sales_Value, colour=is.bigday)) + geom_point(size=4) + 
+  labs(x="日期", y="銷售金額") + thm() + 
+  scale_y_continuous(labels=comma) +
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month"))
+
+ggplot(df2, aes(x=Date, y=Sales_Value, colour=is.typhoon)) + geom_point(size=4) + 
+  labs(x="日期", y="銷售金額") +  thm() + 
+  scale_y_continuous(labels=comma) + 
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month"))
+
+ggplot(df2, aes(x=Date, y=Sales_Value, colour=Rainfall)) + 
+  geom_point(size=4) + 
+  labs(x="日期", y="銷售金額") +  thm() + 
+  scale_y_continuous(labels=comma) + 
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month")) + 
+  scale_colour_gradient2(low="#99FF00", mid="#81DB5A", high="#287AA9", midpoint = 20)
+
+df2 <- mutate(df2, Rain_Lv=cut(Rainfall,
+                               breaks=c(0, 3, 50 ,130, 200, Inf), 
+                               labels=c("無雨","小雨","大雨","豪雨","大豪雨"),
+                               right=FALSE))
+
+ggplot(df2, aes(x=Date, y=Sales_Value, colour=Rain_Lv)) + 
+  geom_point(size=4) + 
+  labs(x="日期", y="銷售金額") +  thm() + 
+  scale_y_continuous(labels=comma) + 
+  scale_x_date(labels=date_format("%m"), breaks = date_breaks("1 month")) + 
+  scale_colour_brewer(palette = "Set2")
+
+ggplot(df2, aes(x=Sales_Number, y=Sales_Value)) + 
+  geom_point(aes(colour=is.weekday, shape=is.bigday), size=4) +
+  labs(x="銷售次數", y="銷售金額") + thm() + 
+  scale_x_continuous(labels=comma) + 
+  scale_y_continuous(labels=comma) 
+
+df2 <- mutate(df2, group=factor(paste(is.weekday, is.bigday, sep="-"), 
+                           levels=c("FALSE-FALSE", "FALSE-TRUE", 
+                                    "TRUE-FALSE", "TRUE-TRUE"),
+                           labels=c("週間,非節日", "週間,節日", 
+                                    "非週間,非節日", "非週間,節日")))
+
+ggplot(df2, aes(x=Sales_Number, y=Sales_Value)) + 
+  geom_point(aes(colour=group), size=4) +
+  labs(x="銷售次數", y="銷售金額") + thm() + 
+  scale_x_continuous(labels=comma) + 
+  scale_y_continuous(labels=comma) 
+```
+
+### 建立線性模型
+```{r lm}
+fit1 <- lm(Sales_Value ~ Sales_Number, data=df2)
+summary(fit1)
+
+fit2 <- lm(Sales_Value ~ Sales_Number + is.weekday + is.bigday
+           + is.weekday:is.bigday, data=df2)
+summary(fit2)
+
+out1 <- data.frame(x=df2$Sales_Number, y=predict(fit1))
+out2 <- data.frame(x=df2$Sales_Number, y=predict(fit2))
+
+ggplot(df2, aes(x=Sales_Number, y=Sales_Value)) + geom_point(size=4) +
+  geom_line(aes(x=x,y=y), data=out1, col=2, size=1) +
+  geom_point(aes(x=x,y=y), data=out2, col=4, size=2) +
+  labs(x="銷售次數", y="銷售金額") + thm() + 
+  scale_x_continuous(labels=comma) + 
+  scale_y_continuous(labels=comma)
+
+```
+
+### 模型診斷
+```{r diagnostics}
+# Total sum of squared error
+sum((df2$Sales_Value - out1$y)^2) 
+
+# R-squared
+1 - sum((df2$Sales_Value - out1$y)^2) / sum((df2$Sales_Value - mean(df2$Sales_Value))^2)
+
+sum((df2$Sales_Value - out2$y)^2)
+1 - sum((df2$Sales_Value - out2$y)^2) / sum((df2$Sales_Value - mean(df2$Sales_Value))^2)
+
+anova(fit1, fit2)
+summary(fit1)
+summary(fit2)
+autoplot(fit1)
+autoplot(fit2)
+```
+
