@@ -8,6 +8,14 @@ if (!require("ggplot2")){
 if (!require("GGally")){
   install.packages("GGally")
 }
+if (!require("rgl")){
+  install.packages("rgl")
+}
+
+X <- matrix(rnorm(2000), 1000, 2)
+beta_true <- matrix(c(0.73, 1.6, 3.1), 3, 1)
+Y <- cbind(rep(1, 1000), X) %*% beta_true + rnorm(1000, sd = 1)
+plot3d(X[, 1], X[, 2], Y, col = "blue", size = 2)
 
 setwd("~/Documents/R_scripts/DSP/A2/A2_Review/")
 
