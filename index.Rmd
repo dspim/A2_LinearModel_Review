@@ -11,6 +11,7 @@ mode        : selfcontained
 knit        : slidify::knit2slides
 
 --- .largecontent
+
 ```{r setup, include=FALSE}
 library("ggplot2")
 library("dplyr")
@@ -255,6 +256,14 @@ fit_noisy <- lm(Y ~ X, data = data_noisy)
 ```{r, cache=FALSE, results='hold'}
 summary(fit_noisy)
 ```
+
+
+--- .largecontent
+
+- [Gauss-Markov Theorem](http://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem)
+  - 補充給對數學有興趣的同學。
+  - 沒興趣的同學沒關係，這定理的重點不是數學。
+  - 對 `data_noisy` 來說，定理說明了現在的模型已經是所有"線性模型"中最好的了。
 
 
 --- .largecontent

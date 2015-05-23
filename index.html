@@ -433,12 +433,15 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   <!-- Presenter Notes -->
 </slide>
 <slide class="largecontent" id="slide-23" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
-  <hgroup>
-    <h2>Linear Model - Dummy Variable</h2>
-  </hgroup>
   <article data-timings="">
     <ul>
-<li>\(X\) 如果是類別變數呢? 跟 \(Y\) 的關係又是如何?</li>
+<li><a href="http://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem">Gauss-Markov Theorem</a>
+
+<ul>
+<li>補充給對數學有興趣的同學。</li>
+<li>沒興趣的同學沒關係，這定理的重點不是數學。</li>
+<li>對 <code>data_noisy</code> 來說，定理說明了現在的模型已經是所有&quot;線性模型&quot;中最好的了。</li>
+</ul></li>
 </ul>
 
   </article>
@@ -451,7 +454,6 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   <article data-timings="">
     <ul>
 <li>\(X\) 如果是類別變數呢? 跟 \(Y\) 的關係又是如何?</li>
-<li>統計學上使用 <code>dummy variable</code> 來處理這樣的變數。</li>
 </ul>
 
   </article>
@@ -465,13 +467,26 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
     <ul>
 <li>\(X\) 如果是類別變數呢? 跟 \(Y\) 的關係又是如何?</li>
 <li>統計學上使用 <code>dummy variable</code> 來處理這樣的變數。</li>
-<li><code>dummy variable</code> 是值為 <code>0</code> 或 <code>1</code> 的隨機變數。</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 <slide class="largecontent" id="slide-26" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>Linear Model - Dummy Variable</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>\(X\) 如果是類別變數呢? 跟 \(Y\) 的關係又是如何?</li>
+<li>統計學上使用 <code>dummy variable</code> 來處理這樣的變數。</li>
+<li><code>dummy variable</code> 是值為 <code>0</code> 或 <code>1</code> 的隨機變數。</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-27" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>Dummy Variable -- Explained</h2>
   </hgroup>
@@ -483,7 +498,7 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-27" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-28" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>Dummy Variable -- Explained</h2>
   </hgroup>
@@ -500,7 +515,7 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-28" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-29" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>Dummy Variable -- Explained</h2>
   </hgroup>
@@ -516,7 +531,7 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-29" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-30" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>Dummy Variable -- Explained</h2>
   </hgroup>
@@ -532,7 +547,7 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-30" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-31" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>Dummy Variable -- Explained</h2>
   </hgroup>
@@ -548,18 +563,6 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-31" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
-  <hgroup>
-    <h2>Dummy Variable -- Explained</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>\(y_i\) 在 \(x_{i, 1}\) 是 <code>1</code> 或 <code>0</code> 時，期望值會有 \(\beta_1\) 的差距。</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 <slide class="largecontent" id="slide-32" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>Dummy Variable -- Explained</h2>
@@ -567,7 +570,6 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
   <article data-timings="">
     <ul>
 <li>\(y_i\) 在 \(x_{i, 1}\) 是 <code>1</code> 或 <code>0</code> 時，期望值會有 \(\beta_1\) 的差距。</li>
-<li>也就是說，我們應該可以從圖形上發現，不同群體 (\(x_{i, 1}\) 是 <code>0</code> 與 <code>1</code>) 間 \(y_i\) 的平均值應該要有差異。</li>
 </ul>
 
   </article>
@@ -581,13 +583,26 @@ ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha
     <ul>
 <li>\(y_i\) 在 \(x_{i, 1}\) 是 <code>1</code> 或 <code>0</code> 時，期望值會有 \(\beta_1\) 的差距。</li>
 <li>也就是說，我們應該可以從圖形上發現，不同群體 (\(x_{i, 1}\) 是 <code>0</code> 與 <code>1</code>) 間 \(y_i\) 的平均值應該要有差異。</li>
-<li>讓我們來看一些例子吧!</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 <slide class="largecontent" id="slide-34" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+  <hgroup>
+    <h2>Dummy Variable -- Explained</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>\(y_i\) 在 \(x_{i, 1}\) 是 <code>1</code> 或 <code>0</code> 時，期望值會有 \(\beta_1\) 的差距。</li>
+<li>也就是說，我們應該可以從圖形上發現，不同群體 (\(x_{i, 1}\) 是 <code>0</code> 與 <code>1</code>) 間 \(y_i\) 的平均值應該要有差異。</li>
+<li>讓我們來看一些例子吧!</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+<slide class="largecontent" id="slide-35" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>圖形</h2>
   </hgroup>
@@ -605,7 +620,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-35" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-36" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <article data-timings="">
     <pre><code class="r">ggplot(data, aes(x = Y, fill = X)) + geom_bar(alpha = .4, binwidth = .5)
 </code></pre>
@@ -615,7 +630,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-36" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-37" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>圖形</h2>
   </hgroup>
@@ -633,7 +648,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-37" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-38" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <article data-timings="">
     <pre><code class="r">ggplot(data, aes(x = Y, fill = X)) + geom_bar(alpha = .4, binwidth = .5)
 </code></pre>
@@ -643,7 +658,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-38" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-39" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>圖形</h2>
   </hgroup>
@@ -661,7 +676,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-39" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-40" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <article data-timings="">
     <pre><code class="r">ggplot(data, aes(x = Y, fill = X)) + geom_bar(alpha = .4, binwidth = .5)
 </code></pre>
@@ -671,7 +686,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-40" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-41" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>觀察資料</h2>
   </hgroup>
@@ -683,7 +698,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-41" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-42" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>觀察資料</h2>
   </hgroup>
@@ -702,7 +717,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-42" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-43" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>補充: 變數選取小撇步</h2>
   </hgroup>
@@ -715,7 +730,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-43" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-44" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>補充: 變數選取小撇步</h2>
   </hgroup>
@@ -730,7 +745,7 @@ data &lt;- data.frame(Y = Y, X = ifelse(X == 1, &quot;P&quot;, &quot;N&quot;))
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-44" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-45" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>補充: 變數選取小撇步</h2>
   </hgroup>
@@ -746,7 +761,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-45" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-46" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>補充: 變數選取小撇步</h2>
   </hgroup>
@@ -765,7 +780,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-46" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-47" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -780,7 +795,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-47" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-48" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -811,7 +826,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-48" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-49" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -824,7 +839,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-49" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-50" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <article data-timings="">
     <pre><code class="r">sales_data &lt;- read.table(&quot;demo_data.csv&quot;, sep = &#39;,&#39;, fileEncoding = &#39;big5&#39;,
                          header = T, stringsAsFactors = F)
@@ -852,7 +867,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-50" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-51" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -869,7 +884,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-51" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-52" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -882,7 +897,7 @@ y_i =& \beta_0 + \beta_1 x_{1, i} + \beta_2 x_{2, i} \\
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-52" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-53" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>實作</h2>
   </hgroup>
@@ -914,7 +929,7 @@ head(sales_data)
   </article>
   <!-- Presenter Notes -->
 </slide>
-<slide class="largecontent" id="slide-53" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
+<slide class="largecontent" id="slide-54" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <hgroup>
     <h2>資料整理/視覺化套件</h2>
   </hgroup>
@@ -1067,7 +1082,7 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Linear Model - Dummy Variable'>
+        data-slide=23 title=''>
          23
       </a>
     </li>
@@ -1085,7 +1100,7 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Dummy Variable -- Explained'>
+        data-slide=26 title='Linear Model - Dummy Variable'>
          26
       </a>
     </li>
@@ -1133,43 +1148,43 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='圖形'>
+        data-slide=34 title='Dummy Variable -- Explained'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title=''>
+        data-slide=35 title='圖形'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='圖形'>
+        data-slide=36 title=''>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title=''>
+        data-slide=37 title='圖形'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='圖形'>
+        data-slide=38 title=''>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title=''>
+        data-slide=39 title='圖形'>
          39
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='觀察資料'>
+        data-slide=40 title=''>
          40
       </a>
     </li>
@@ -1181,7 +1196,7 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='補充: 變數選取小撇步'>
+        data-slide=42 title='觀察資料'>
          42
       </a>
     </li>
@@ -1205,7 +1220,7 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='實作'>
+        data-slide=46 title='補充: 變數選取小撇步'>
          46
       </a>
     </li>
@@ -1223,13 +1238,13 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title=''>
+        data-slide=49 title='實作'>
          49
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=50 title='實作'>
+        data-slide=50 title=''>
          50
       </a>
     </li>
@@ -1247,8 +1262,14 @@ head(sales_data)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=53 title='資料整理/視覺化套件'>
+        data-slide=53 title='實作'>
          53
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='資料整理/視覺化套件'>
+         54
       </a>
     </li>
   </ul>

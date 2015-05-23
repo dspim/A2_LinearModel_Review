@@ -13,6 +13,7 @@ knit        : slidify::knit2slides
 --- .largecontent
 
 
+
 ## About Me
 
 - 畢業於臺大經濟研究所。
@@ -304,6 +305,14 @@ summary(fit_noisy)
 ## Multiple R-squared:  0.0832,	Adjusted R-squared:  0.0822 
 ## F-statistic: 90.5 on 1 and 998 DF,  p-value: <2e-16
 ```
+
+
+--- .largecontent
+
+- [Gauss-Markov Theorem](http://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem)
+  - 補充給對數學有興趣的同學。
+  - 沒興趣的同學沒關係，這定理的重點不是數學。
+  - 對 `data_noisy` 來說，定理說明了現在的模型已經是所有"線性模型"中最好的了。
 
 
 --- .largecontent
