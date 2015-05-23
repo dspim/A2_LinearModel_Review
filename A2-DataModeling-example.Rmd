@@ -25,8 +25,8 @@ library(ggfortify)
 options(width=100, dplyr.width=Inf)
 knitr::opts_chunk$set(comment="", message=FALSE, warning=FALSE, 
                       echo=TRUE)
-myfilepath <- "../data/hypermall2009utf8/hypermall_H1_utf8.csv"
-myfilepath2 <- "../data/hypermall2009utf8/hypermall_supplement_utf8.csv" 
+myfilepath <- "../../data/hypermall2009utf8/hypermall_H1_utf8.csv"
+myfilepath2 <- "../../data/hypermall2009utf8/hypermall_supplement_utf8.csv" 
 raw <- fread(myfilepath, data.table=FALSE)
 sup <- fread(myfilepath2, data.table=FALSE)
 ```
@@ -36,9 +36,9 @@ sup <- fread(myfilepath2, data.table=FALSE)
 if (!require("data.table")) install.packages("data.table")
 if (!require("dplyr")) install.packages("dplyr") 
 if (!require("reshape2")) install.packages("reshape2") 
-if (!require("ggplot2")) intall.packages("ggplots") 
-if (!require("scales")) intall.packages("scales") 
-if (!require("devtools")) intall.packages("devtools") 
+if (!require("ggplot2")) install.packages("ggplots") 
+if (!require("scales")) install.packages("scales") 
+if (!require("devtools")) install.packages("devtools") 
 if (!require("ggfortify")) install_github('sinhrks/ggfortify')
 
 
