@@ -302,7 +302,8 @@ data_ok &lt;- data.frame(Y = Y, X = X)
 <slide class="largecontent" id="slide-16" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <article data-timings="">
     <pre><code class="r"># 畫圖
-ggplot(data_ok, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha = .3)
+ggplot(data_ok, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha = .3) + 
+  geom_smooth(method = &quot;lm&quot;, se = F)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
@@ -332,7 +333,8 @@ data &lt;- data.frame(Y = Y, X = X)
 <slide class="largecontent" id="slide-18" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <article data-timings="">
     <pre><code class="r"># 畫圖
-ggplot(data, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha = .3)
+ggplot(data, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha = .3) + 
+  geom_smooth(method = &quot;lm&quot;, se = F)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
@@ -362,7 +364,8 @@ data_noisy &lt;- data.frame(Y = Y, X = X)
 <slide class="largecontent" id="slide-20" style="background-image: url('libraries/frameworks/io2012-dsp/images/dsp-page.png'); background-repeat:no-repeat; background-position:center; background-size: 100% 100%;">
   <article data-timings="">
     <pre><code class="r"># 畫圖
-ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha = .3)
+ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour=&quot;red&quot;, alpha = .3) + 
+  geom_smooth(method = &quot;lm&quot;, se = F)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6"> </p>

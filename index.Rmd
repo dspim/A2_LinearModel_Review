@@ -188,7 +188,8 @@ data_ok <- data.frame(Y = Y, X = X)
 
 ```{r, cache=FALSE, results='hold'}
 # 畫圖
-ggplot(data_ok, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3)
+ggplot(data_ok, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3) + 
+  geom_smooth(method = "lm", se = F)
 ```
 
 --- .largecontent
@@ -209,7 +210,8 @@ data <- data.frame(Y = Y, X = X)
 
 ```{r, cache=FALSE, results='hold'}
 # 畫圖
-ggplot(data, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3)
+ggplot(data, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3) + 
+  geom_smooth(method = "lm", se = F)
 ```
 
 --- .largecontent
@@ -230,7 +232,8 @@ data_noisy <- data.frame(Y = Y, X = X)
 
 ```{r, cache=FALSE, results='hold'}
 # 畫圖
-ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3)
+ggplot(data_noisy, aes(x = X, y = Y)) + geom_point(colour="red", alpha = .3) + 
+  geom_smooth(method = "lm", se = F)
 ```
 
 --- .largecontent

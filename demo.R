@@ -8,6 +8,14 @@ if (!require("ggplot2")){
 if (!require("GGally")){
   install.packages("GGally")
 }
+if (!require("rgl")){
+  install.packages("rgl")
+}
+
+X <- matrix(rnorm(2000), 1000, 2)
+beta_true <- matrix(c(0.73, 1.6, 3.1), 3, 1)
+Y <- cbind(rep(1, 1000), X) %*% beta_true + rnorm(1000, sd = 1)
+plot3d(X[, 1], X[, 2], Y, col = "blue", size = 2)
 
 setwd("~/Documents/R_scripts/DSP/A2/A2_Review/")
 
@@ -15,18 +23,8 @@ data <- read.table("demo_data_utf8.csv", sep = ",", header = T, stringsAsFactors
 n_obs <- dim(data)[1]
 n_feature <- dim(data)[2]
 
-# helper function to correct date format.
-format_date <- function(t){
-  temp <- strsplit(t, "/")[[1]]
-  mon <- temp[1]
-  day <- temp[2]
-  year <- temp[3]
-  
-  return(paste(year, mon, day, sep = "/"))
-}
-
 # Correct the format of "Date" to "yyyy/mm/dd"
-data[, "Date"] <- sapply(data[, "Date"], format_date)
+data[, "Date"] <- as.Date(data[, "Date"], format = "%m/%d/%Y")
 
 # Filt out the data we are interested in, which in this case is the 
 # observations with field "Family" equal to "運動飲料".
@@ -80,10 +78,15 @@ data_drink %>% filter(.$Store == "H1") %>% ggplot(., aes(x=SalesValue, fill = St
 ggplot(data_drink, aes(x = Sales_Status, y = Store, color = Store)) + 
   geom_point(position = 'jitter', alpha = .5)
 
-fit <- lm(SalesValue ~ Price + Time + dummy_H1 + dummy_S1 + dummy_P_H1, data = data_drink)
+fit <- lm(SalesValue ~ Price + Time + Store, data = data_drink)
 summary(fit)
+
+
+ind <- sample(1:nrow(data_drink), nrow(data_drink) %/% 10)
+small_data <- data_drink[ind, ]
+fit_small <- lm(SalesValue ~ Price + Time + Store, data = small_data)
+summary(fit_small)
 
 ## ggpirs
 data(iris)
 ggpairs(iris, colour='Species', alpha=0.4, params = c(binwidth = 0.1))
-
